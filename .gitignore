@@ -1,0 +1,6 @@
+slurm-*.out
+evaluation/temp*
+experiment-logs
+models
+.idea
+**/*.pyc
