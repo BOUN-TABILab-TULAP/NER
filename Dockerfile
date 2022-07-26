@@ -29,7 +29,7 @@ RUN mkdir models/
 # COPY toolkit /opt/ner-tagger-dynet/toolkit
 
 
-RUN wget -q -r -nH --cut-dirs=2  --no-parent -e robots=off http://nlp.cmpe.boun.edu.tr/staticFiles/NER/
+RUN wget -q -r -nH --cut-dirs=2  --no-parent -e robots=off https://tulap.cmpe.boun.edu.tr/staticFiles/NER/
 RUN touch models/model_paths_database.dat
 RUN chmod -R +x ../ner-tagger-dynet/
 # CMD tail -f /dev/null
