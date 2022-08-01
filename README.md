@@ -14,19 +14,24 @@ testing files and produce files in `./evaluation/temp/eval_logs/`. If you need t
  and sharing it with the project, you are welcome.
 
 ## How to run using Docker
-1. Launch a terminal in the root directory of the repo and build the Docker image where
+
+1. Clone the repo
+```bash
+git clone https://github.com/BOUN-TABILab-TULAP/NER.git
+```
+2. Launch a terminal in the root directory of the repo and build the Docker image where
 - `-t` is the tag for the Docker image. You can provide any name you want
 - `.` is the relative path to the Dockerfile 
 ```bash
 docker build -t ner .
 ```
-2. Run the Docker image where
+3. Run the Docker image where
 - `-d` indicates "detach", let the container run in the background
 - `-p 8080:8080` indicates mapping port 8080 of the container to the port 8080 of the host.
 ```bash
 docker run -d -p 8080:8080 ner
 ```
-3. Send a POST request
+4. Send a POST request
 - via curl
     ```bash
     curl -X POST http://localhost:8080/ner/predict/ 
