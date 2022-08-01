@@ -56,10 +56,10 @@ class DisambiguationHandler(tornado.web.RequestHandler):
         self.add_header("Access-Control-Allow-Origin", "*")
 
         body_data = json.loads(self.request.body.decode('utf-8'))
-        if 'textarea' not in body_data:
+        if 'text' not in body_data:
             line = DEFAULT_VALUE
         else:
-            line = body_data['textarea']
+            line = body_data['text']
 
         show_gold_labels = False
         if "show_gold_labels" in body_data:

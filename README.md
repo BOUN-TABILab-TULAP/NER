@@ -31,14 +31,14 @@ docker run -d -p 8080:8080 ner
     ```bash
     curl -X POST http://localhost:8080/ner/predict/ 
    -H 'Content-Type: application/json' 
-   -d "{'textarea':'İstanbul'daki maçta Demet ile Ahmet değişerek oynadı.'}"
+   -d "{'text':'İstanbul'daki maçta Demet ile Ahmet değişerek oynadı.'}"
    
    > {'dataset_file_string': {'0': ["İstanbul'daki", '_', 'i̇stanbul+Noun+Prop+A3sg+Pnon+Loc^DB+Adj+Rel', 'O'], '1': ['maçta', '_', 'maç+Noun+A3sg+Pnon+Loc', 'O'], '2': ['Demet', '_', 'demet+Noun+A3sg+Pnon+Nom', 'demet+Noun+Prop+A3sg+Pnon+Nom', 'O'], '3': ['ile', '_', 'il+Noun+A3sg+Pnon+Dat', 'ile+Conj', 'ile+Postp+PCNom', 'O'], '4': ['Ahmet', '_', 'ahmet+Noun+Prop+A3sg+Pnon+Nom', 'O'], '5': ['değişerek', '_', 'değ+Verb+Recip+Pos^DB+Adverb+ByDoingSo', 'değiş+Verb+Pos^DB+Adverb+ByDoingSo', 'O'], '6': ['oynadı', '_', 'oyna+Verb+Pos+Past+A3sg', 'O'], '7': ['.', '_', '.+Punc', 'O']}, 'tagger_output': {'0': ["İstanbul'daki", 'B-LOC'], '1': ['maçta', 'O'], '2': ['Demet', 'B-PER'], '3': ['ile', 'O'], '4': ['Ahmet', 'B-PER'], '5': ['değişerek', 'O'], '6': ['oynadı', 'O'], '7': ['.', 'O']}}
     ```
 - via Python's requests library
     ```python
     import requests
-    res = requests.post('http://localhost:8080/ner/predict/', json={'textarea':"İstanbul'daki maçta Demet ile Ahmet değişerek oynadı."})
+    res = requests.post('http://localhost:8080/ner/predict/', json={'text':"İstanbul'daki maçta Demet ile Ahmet değişerek oynadı."})
     print(res.json())
 
     > {'dataset_file_string': {'0': ["İstanbul'daki", '_', 'i̇stanbul+Noun+Prop+A3sg+Pnon+Loc^DB+Adj+Rel', 'O'], '1': ['maçta', '_', 'maç+Noun+A3sg+Pnon+Loc', 'O'], '2': ['Demet', '_', 'demet+Noun+A3sg+Pnon+Nom', 'demet+Noun+Prop+A3sg+Pnon+Nom', 'O'], '3': ['ile', '_', 'il+Noun+A3sg+Pnon+Dat', 'ile+Conj', 'ile+Postp+PCNom', 'O'], '4': ['Ahmet', '_', 'ahmet+Noun+Prop+A3sg+Pnon+Nom', 'O'], '5': ['değişerek', '_', 'değ+Verb+Recip+Pos^DB+Adverb+ByDoingSo', 'değiş+Verb+Pos^DB+Adverb+ByDoingSo', 'O'], '6': ['oynadı', '_', 'oyna+Verb+Pos+Past+A3sg', 'O'], '7': ['.', '_', '.+Punc', 'O']}, 'tagger_output': {'0': ["İstanbul'daki", 'B-LOC'], '1': ['maçta', 'O'], '2': ['Demet', 'B-PER'], '3': ['ile', 'O'], '4': ['Ahmet', 'B-PER'], '5': ['değişerek', 'O'], '6': ['oynadı', 'O'], '7': ['.', 'O']}}
