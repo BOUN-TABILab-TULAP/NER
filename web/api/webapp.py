@@ -60,7 +60,6 @@ class DisambiguationHandler(tornado.web.RequestHandler):
             line = DEFAULT_VALUE
         else:
             line = body_data['text']
-        line = line.replace('?', '') # NER throws exceptions when an input that contains question mark(s) is provided. Removing question marks is not a great solution but should be keep NER working until we fix the issue. 
 
         show_gold_labels = False
         if "show_gold_labels" in body_data:
